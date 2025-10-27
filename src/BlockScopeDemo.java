@@ -10,6 +10,5 @@ public class BlockScopeDemo {
         }
 
         System.out.println("After block: outerX = " + outerX);
-        System.out.println("After block: innerY = " + innerY);
     }
 }
