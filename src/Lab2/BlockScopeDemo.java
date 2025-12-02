@@ -1,3 +1,4 @@
+package Lab2;
 public class BlockScopeDemo {
     public static void main(String[] args) {
         int outerX = 5;
