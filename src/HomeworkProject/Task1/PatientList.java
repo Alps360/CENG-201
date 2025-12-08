@@ -1,4 +1,4 @@
-package HomeworkProject;
+package HomeworkProject.Task1;
 
 public class PatientList {
     Node head;
