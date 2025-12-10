@@ -1,5 +1,6 @@
 package HomeworkProject.Task2;
 
+// TreatmentQueue class
 public class TreatmentQueue {
     private Node front;
     private Node rear;
@@ -14,6 +15,7 @@ public class TreatmentQueue {
         return front == null;
     }
 
+    // enqueue method, time complexity = O(1)
     public void enqueue(TreatmentRequest request) {
         Node  new_node = new Node(request);
 
@@ -28,6 +30,7 @@ public class TreatmentQueue {
         queueSize++;
     }
 
+    // dequeue method, time complexity = 0(1)
     public TreatmentRequest dequeue() {
         if(isEmpty()) {
             System.out.println("Queue Underflow");
@@ -44,10 +47,12 @@ public class TreatmentQueue {
         return removedData;
     }
 
+    // size method, time complexity = 0(1)
     public int size() {
         return queueSize;
     }
 
+    // printQueue method
     public void printQueue() {
         if(isEmpty()) {
             System.out.println("Treatment Queue is empty.");
