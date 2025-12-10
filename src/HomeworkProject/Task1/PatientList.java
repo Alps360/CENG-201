@@ -89,7 +89,3 @@ public class PatientList {
         System.out.println("****************************");
     }
 }
-
-// for Arraylist and LinkedList addPatient method will have the same final time complexity of O(1)
-// for Arraylist and LinkedList findPatient method will have the same final time complexity of O(n)
-// for Arraylist and LinkedList removePatient method will have the same final time complexity of O(n)
