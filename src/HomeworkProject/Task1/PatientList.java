@@ -1,13 +1,16 @@
 package HomeworkProject.Task1;
 
+// Patient list class
 public class PatientList {
     Node head;
     Node tail;
 
+    // Patient list constructor
     public PatientList() {
         this.head = null;
     }
 
+    // addPatient method, time complexity = O(1)
     public void addPatient(Patient person) {
         Node newNode = new Node(person);
 
@@ -24,6 +27,7 @@ public class PatientList {
         System.out.println("Added: " + person.getName());
     }
 
+    // removePatient method, time complexity = O(n)
     public void removePatient(int id) {
         Node current = head;
 
@@ -53,6 +57,7 @@ public class PatientList {
         System.out.println("Removed patient, Name: " + current.data.getName() + " ID: " + id);
     }
 
+    // findPatient method, time complexity = O(n)
     public Patient findPatientin(int id) {
         Node current = head;
 
@@ -66,6 +71,7 @@ public class PatientList {
         return null;
     }    
 
+    // printList method
     public void printList() {
         Node current = head;
 
@@ -83,3 +89,7 @@ public class PatientList {
         System.out.println("****************************");
     }
 }
+
+// for Arraylist and LinkedList addPatient method will have the same final time complexity of O(1)
+// for Arraylist and LinkedList findPatient method will have the same final time complexity of O(n)
+// for Arraylist and LinkedList removePatient method will have the same final time complexity of O(n)

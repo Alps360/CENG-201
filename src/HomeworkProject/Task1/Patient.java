@@ -1,11 +1,14 @@
 package HomeworkProject.Task1;
 
+// Patient class
 public class Patient {
+    // Patient's attributes
     private int id;
     private String name;
     private int severity;
     private int age;
 
+    // Patient's constructor
     public Patient(int id, String name, int severity, int age) {
         this.id = id;
         this.name = name;
@@ -13,6 +16,7 @@ public class Patient {
         this.age = age;
     }
 
+    // Getters and setters
     public int getId() {
         return id;
     }
@@ -45,6 +49,7 @@ public class Patient {
         this.age = newAge;
     }
 
+    // toString method
     @Override
     public String toString() {
         return "ID: " + id + ", Name: " + name + ", Severity: " + severity + ", Age: " + age;

@@ -1,5 +1,6 @@
 package HomeworkProject.Task1;
 
+// Node class
 public class Node {
     Patient data;
     Node next;
