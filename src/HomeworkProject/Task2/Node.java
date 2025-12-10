@@ -1,9 +1,9 @@
 package HomeworkProject.Task2;
 
 public class Node {
-    int data;
+    TreatmentRequest data;
     Node next;
-    Node(int new_data) {
+    Node(TreatmentRequest new_data) {
         data = new_data;
         next = null;
     }

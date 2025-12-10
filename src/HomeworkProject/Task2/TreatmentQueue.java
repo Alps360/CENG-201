@@ -14,8 +14,8 @@ public class TreatmentQueue {
         return front == null;
     }
 
-    public void enqueue(int requestId) {
-        Node  new_node = new Node(requestId);
+    public void enqueue(TreatmentRequest request) {
+        Node  new_node = new Node(request);
 
         if(isEmpty()) {
             front = rear = new_node;
@@ -28,14 +28,14 @@ public class TreatmentQueue {
         queueSize++;
     }
 
-    public int dequeue() {
+    public TreatmentRequest dequeue() {
         if(isEmpty()) {
             System.out.println("Queue Underflow");
-            return -1;
+            return null;
         }
 
         Node temp = front;
-        int removedData = temp.data;
+        TreatmentRequest removedData = temp.data;
         front = front.next;
 
         if(front == null) rear = null;
@@ -57,7 +57,7 @@ public class TreatmentQueue {
         Node current = front;
         System.out.print("Treatment Queue Requests (Front -> Rear): ");
         while (current != null) {
-            System.out.print(current.data);
+            System.out.print(current.data.toString());
             if(current.next != null) {
                 System.out.print(" -> ");
             }
