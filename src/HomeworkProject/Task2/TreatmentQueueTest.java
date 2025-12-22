@@ -5,14 +5,14 @@ public class TreatmentQueueTest {
         TreatmentQueue tQueue = new TreatmentQueue();
         System.out.println("Queue size: " + tQueue.size());
 
-        tQueue.enqueue(new TreatmentRequest(101, 100000L));
-        tQueue.enqueue(new TreatmentRequest(102, 200000l));
-        tQueue.enqueue(new TreatmentRequest(103, 300000L));
-        tQueue.enqueue(new TreatmentRequest(104, 400000L));
-        tQueue.enqueue(new TreatmentRequest(105, 500000L));
-        tQueue.enqueue(new TreatmentRequest(106, 600000L));
-        tQueue.enqueue(new TreatmentRequest(107, 700000));
-        tQueue.enqueue(new TreatmentRequest(108, 800000));
+        tQueue.enqueue(new TreatmentRequest(101, 1000L, true));
+        tQueue.enqueue(new TreatmentRequest(102, 2000L, true));
+        tQueue.enqueue(new TreatmentRequest(103, 2200L, true));
+        tQueue.enqueue(new TreatmentRequest(104, 1800L, true));
+        tQueue.enqueue(new TreatmentRequest(105, 2030L, false));
+        tQueue.enqueue(new TreatmentRequest(106, 1030L, false));
+        tQueue.enqueue(new TreatmentRequest(107, 830L, false));
+        tQueue.enqueue(new TreatmentRequest(108, 900L, false));
 
         System.out.println("Queue size: " + tQueue.size());
 

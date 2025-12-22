@@ -2,8 +2,8 @@ package HomeworkProject.Task2;
 
 // TreatmentQueue class
 public class TreatmentQueue {
-    private Node front;
-    private Node rear;
+    private TreatmentQueueNode front;
+    private TreatmentQueueNode rear;
     private int queueSize;
     
     public TreatmentQueue() {
@@ -17,7 +17,7 @@ public class TreatmentQueue {
 
     // enqueue method, time complexity = O(1)
     public void enqueue(TreatmentRequest request) {
-        Node  new_node = new Node(request);
+        TreatmentQueueNode  new_node = new TreatmentQueueNode(request);
 
         if(isEmpty()) {
             front = rear = new_node;
@@ -37,7 +37,7 @@ public class TreatmentQueue {
             return null;
         }
 
-        Node temp = front;
+        TreatmentQueueNode temp = front;
         TreatmentRequest removedData = temp.data;
         front = front.next;
 
@@ -59,7 +59,7 @@ public class TreatmentQueue {
             return;
         }
 
-        Node current = front;
+        TreatmentQueueNode current = front;
         System.out.print("Treatment Queue Requests (Front -> Rear): ");
         while (current != null) {
             System.out.print(current.data.toString());

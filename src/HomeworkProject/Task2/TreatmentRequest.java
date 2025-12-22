@@ -4,20 +4,26 @@ package HomeworkProject.Task2;
 public class TreatmentRequest {
     private int patientId;
     private long arrivalTime;
+    private boolean isPriority;
 
     // TreatmentRequest constructor
-    public TreatmentRequest(int patientId, long arrivalTime) {
+    public TreatmentRequest(int patientId, long arrivalTime, boolean isPriority) {
         this.patientId = patientId;
         this.arrivalTime = arrivalTime;
+        this.isPriority = isPriority;
     }
 
     // Getters and setters
     public int getPatientId() {
-        return patientId;
+        return this.patientId;
     }
 
     public long getArrivalTime() {
-        return arrivalTime;
+        return this.arrivalTime;
+    }
+
+    public boolean getIsPriority() {
+        return this.isPriority;
     }
 
     public void setPatientId(int newPatientId) {
@@ -28,9 +34,13 @@ public class TreatmentRequest {
         this.arrivalTime = newArrivalTime;
     }
 
+    public void setIsPriority(boolean newIsPriority) {
+        this.isPriority = newIsPriority;
+    }
+
     // toString method
     @Override
     public String toString() {
-        return "Patient Id: " + patientId + " Arrival Time: " + arrivalTime;
+        return "Patient Id: " + patientId + " Arrival Time: " + arrivalTime + " Priority: " + isPriority;
     }
 }

@@ -18,19 +18,19 @@ public class Patient {
 
     // Getters and setters
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getSeverity() {
-        return severity;
+        return this.severity;
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     public void setId(int newId) {

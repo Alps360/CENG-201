@@ -1,25 +1,29 @@
 package HomeworkProject.Task3;
 
+// DischargeStack Class
 public class DischargeStack {
-    private Node top;
+    private DischargeStackNode top;
 
+    // constructor
     public DischargeStack() {
         top = null;
     }
 
+    // push method, time complexity = O(1)
     public void push(DischargeRecord record) {
-        Node temp = new Node(record);
+        DischargeStackNode temp = new DischargeStackNode(record);
         temp.next = top;
         top = temp;
     }
 
+    // pop method , time complexity = O(1)
     public DischargeRecord pop() {
         if(top == null) {
             System.out.println("Stack Underflow");
             return null;
         }
 
-        Node temp = top;
+        DischargeStackNode temp = top;
         top = top.next;
         DischargeRecord record = temp.data;
 
@@ -27,22 +31,24 @@ public class DischargeStack {
         return record;
     }
 
+    // peek method, time complexity = O(1)
     public DischargeRecord peek() {
         if(top == null) {
-            System.out.println("There is no records.");
+            System.out.println("There are no records.");
             return null;
         }
 
         return top.data;
     }
 
+    // printStack method
     public void printStack() {
         if(top == null) {
-            System.out.println("There is no records.");
+            System.out.println("There are no records.");
             return;
         }
 
-        Node current = top;
+        DischargeStackNode current = top;
         System.out.print("Records (Top > Bottom): ");
         while (current != null) {
             System.out.print(current.data);

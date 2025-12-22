@@ -1,20 +1,23 @@
 package HomeworkProject.Task3;
 
+// DischargeRecord class
 public class DischargeRecord {
     private int patientId;
     private long dischargeTime;
 
+    // constructor
     public DischargeRecord(int patientId, long dischargeTime) {
         this.patientId = patientId;
         this.dischargeTime = dischargeTime;
     }
 
+    // Getters and setters
     public int getPatientId() {
-        return patientId;
+        return this.patientId;
     }
 
     public long getDischargeTime() {
-        return dischargeTime;
+        return this.dischargeTime;
     }
 
     public void setPatientId(int newPatientId) {
@@ -25,6 +28,7 @@ public class DischargeRecord {
         this.dischargeTime = newDischargeTime;
     }
 
+    // toString method
     @Override
     public String toString() {
         return "Patient Id: " + patientId + " discharge time: " + dischargeTime;

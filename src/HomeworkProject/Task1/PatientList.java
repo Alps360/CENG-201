@@ -2,8 +2,8 @@ package HomeworkProject.Task1;
 
 // Patient list class
 public class PatientList {
-    Node head;
-    Node tail;
+    PatientNode head;
+    PatientNode tail;
 
     // Patient list constructor
     public PatientList() {
@@ -12,7 +12,7 @@ public class PatientList {
 
     // addPatient method, time complexity = O(1)
     public void addPatient(Patient person) {
-        Node newNode = new Node(person);
+        PatientNode newNode = new PatientNode(person);
 
         if (head == null) {
             head = newNode;
@@ -29,9 +29,9 @@ public class PatientList {
 
     // removePatient method, time complexity = O(n)
     public void removePatient(int id) {
-        Node current = head;
+        PatientNode current = head;
 
-        while(current != null && current.data.getId() == id) {
+        while(current != null && current.data.getId() != id) {
             current = current.next;
         }
 
@@ -54,12 +54,12 @@ public class PatientList {
             tail = current.prev;
         }
 
-        System.out.println("Removed patient, Name: " + current.data.getName() + " ID: " + id);
+        System.out.println("Removed patient Name: " + current.data.getName() + " ID: " + id);
     }
 
     // findPatient method, time complexity = O(n)
     public Patient findPatientin(int id) {
-        Node current = head;
+        PatientNode current = head;
 
         while(current != null) {
             if(current.data.getId() == id) {
@@ -73,7 +73,7 @@ public class PatientList {
 
     // printList method
     public void printList() {
-        Node current = head;
+        PatientNode current = head;
 
         if (current == null) {
             System.out.println("The patient list is empty.");
@@ -87,5 +87,29 @@ public class PatientList {
         }
 
         System.out.println("****************************");
+    }
+
+    // sortBySeverity method (Bubble Sort)
+    public void sortBySeverity() {
+        if (head == null) {
+            return;
+        }
+
+        boolean swapped;
+        do {
+            swapped = false;
+            PatientNode current = head;
+
+            while (current.next != null) {
+                if(current.data.getSeverity() < current.next.data.getSeverity()){
+                    Patient temp = current.data;
+                    current.data = current.next.data;
+                    current.next.data = temp;
+
+                    swapped = true;
+                }
+                current = current.next;
+            }
+        }while (swapped);
     }
 }

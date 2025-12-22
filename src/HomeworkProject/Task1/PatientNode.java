@@ -1,12 +1,12 @@
 package HomeworkProject.Task1;
 
 // Node class
-public class Node {
+public class PatientNode {
     Patient data;
-    Node next;
-    Node prev;
+    PatientNode next;
+    PatientNode prev;
 
-    public Node(Patient data) {
+    public PatientNode(Patient data) {
         this.data = data;
         this.next = null;
         this.prev = null;

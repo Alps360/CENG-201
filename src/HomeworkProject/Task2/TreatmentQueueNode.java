@@ -1,10 +1,10 @@
 package HomeworkProject.Task2;
 
 // Node class
-public class Node {
+public class TreatmentQueueNode {
     TreatmentRequest data;
-    Node next;
-    Node(TreatmentRequest new_data) {
+    TreatmentQueueNode next;
+    TreatmentQueueNode(TreatmentRequest new_data) {
         data = new_data;
         next = null;
     }

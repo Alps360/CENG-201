@@ -6,11 +6,11 @@ public class DischargeStackTest {
 
         dStack.printStack();
 
-        dStack.push(new DischargeRecord(101, 3141592653589L));
-        dStack.push(new DischargeRecord(102, 9223372036854775807L));
-        dStack.push(new DischargeRecord(103, 123456789012L));
-        dStack.push(new DischargeRecord(104, 500000000000L));
-        dStack.push(new DischargeRecord(105, 0L));
+        dStack.push(new DischargeRecord(101, 1000L));
+        dStack.push(new DischargeRecord(102, 1100L));
+        dStack.push(new DischargeRecord(103, 1200L));
+        dStack.push(new DischargeRecord(104, 1300L));
+        dStack.push(new DischargeRecord(105, 1400L));
 
         dStack.printStack();
 
