@@ -1,11 +1,13 @@
 package HomeworkProject.Task4;
 
+// Importing Task1, Task2, Task3 
 import HomeworkProject.Task1.*;
 import HomeworkProject.Task2.*;
 import HomeworkProject.Task3.*;
 
 import java.util.HashMap;
 
+// HospitalSystem class
 public class HospitalSystem {
     PatientList patientList = new PatientList();
     TreatmentQueue normalTreatmentQueue = new TreatmentQueue();
@@ -13,6 +15,7 @@ public class HospitalSystem {
     DischargeStack dischargeStack = new DischargeStack();
     HashMap<Integer, Patient> patientLookUp = new HashMap<>();
 
+    // addPatient method, time complexity = O(1)
     public void addPatient(Patient patient) {
         if(patientLookUp.containsKey(patient.getId())) {
             System.out.println("Error Id: " + patient.getId() + " already exists.");
@@ -22,6 +25,7 @@ public class HospitalSystem {
         patientLookUp.put(patient.getId(), patient);
     }
 
+    // addTreatmentRequest method, time complexity = O(1)
     public void addTreatmentRequest(int id, long arrivalTime, boolean isPriority ) {
         if (!patientLookUp.containsKey(id)) {
             System.out.println("Error Id: " + id + " does not exists.");
@@ -38,6 +42,7 @@ public class HospitalSystem {
         }
     }
 
+    // processTreatment method, time complexity = O(n)
     public void processTreatment() {
         TreatmentRequest request = null;
         
@@ -55,12 +60,14 @@ public class HospitalSystem {
         }
     }
 
+    // printSortedPatients method, time complexity = O(n^2)
     public void printSortedPatients() {
         System.out.println("\n*** Patients Sorted by Severity ***");
         patientList.sortBySeverity();
         patientList.printList();
     }
 
+    // printHospitalSystem method, time complexity = O(N)+O(1)+O(1)+O(M)=O(N+M)
     public void printHospitalSystemState() {
         patientList.printList();
         System.out.println("*** Pending Priority Requests ***");
