@@ -41,6 +41,6 @@ public class TreatmentRequest {
     // toString method
     @Override
     public String toString() {
-        return "Patient Id: " + patientId + " Arrival Time: " + arrivalTime + " Priority: " + isPriority;
+        return "* Patient's ID: " + patientId + ", Arrival Time: " + arrivalTime + ", Priority: " + isPriority + " *";
     }
 }

@@ -52,6 +52,6 @@ public class Patient {
     // toString method
     @Override
     public String toString() {
-        return "ID: " + id + ", Name: " + name + ", Severity: " + severity + ", Age: " + age;
+        return "* Patient's ID: " + id + ", Name: " + name + ", Severity: " + severity + ", Age: " + age + " *";
     }
 }

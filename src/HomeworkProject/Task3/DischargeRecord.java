@@ -31,6 +31,6 @@ public class DischargeRecord {
     // toString method
     @Override
     public String toString() {
-        return "Patient Id: " + patientId + " discharge time: " + dischargeTime;
+        return "* Patient's ID: " + patientId + ", Discharge Time: " + dischargeTime + " *";
     }
 }
