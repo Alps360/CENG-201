@@ -1,63 +1,78 @@
 package Lab11;
 
-import java.util.Arrays;
 
 public class StudentTest {
+
     public static void main(String[] args) {
-        // Create sample data
-        // Note: s1 and s4 have the same grade to test stability and secondary sorting
-        Student s1 = new Student(1, 103, "Alice", "Smith", 1, 85.5);
-        Student s2 = new Student(2, 101, "Bob", "Jones", 2, 90.0);
-        Student s3 = new Student(3, 105, "Charlie", "Brown", 1, 70.0);
-        Student s4 = new Student(4, 102, "David", "White", 2, 85.5);
-        Student s5 = new Student(5, 104, "Eve", "Black", 1, 95.0);
 
-        Student[] students = {s1, s2, s3, s4, s5};
+        Student[] studentList = createDummyStudents();
+        System.out.println("===== SORT BY GRADE (ASC) =====");
+        StudentSorter.insertionSortStudent(studentList,true);
+        printAll(studentList);
 
-        System.out.println("--- Original Array ---");
-        printArray(students);
+        System.out.println("===== SORT BY GRADE (ASC) =====");
+        StudentSorter.insertionSortStudent(studentList,false);
+        printAll(studentList);
 
-        // Test 1: Student.insertionSort 
-        // Logic: Sort by Grade (ASC), if equal then by StudentId (ASC)
-        Student[] test1 = Arrays.copyOf(students, students.length);
-        Student.insertionSort(test1);
-        System.out.println("\n--- Test 1: Student.insertionSort (Grade ASC, then ID ASC) ---");
-        printArray(test1);
+        System.out.println("\nNote:");
+        System.out.println("When sorting by grade, same-grade students should keep their original order (stable).");
 
-        // Test 2: StudentSorter.insertionSortStudent (byGrade = true)
-        // Logic: Sort by Grade (ASC), Stable (Original order preserved for equals)
-        Student[] test2 = Arrays.copyOf(students, students.length);
-        StudentSorter.insertionSortStudent(test2, true);
-        System.out.println("\n--- Test 2: StudentSorter.insertionSortStudent (byGrade=true, Stable) ---");
-        printArray(test2);
+        System.out.println("\n===== SORT BY GRADE (FIRST TIME) =====");
+        StudentSorter.binaryInsertionSortStudent(studentList, true);
+        printAll(studentList);
 
-        // Test 3: StudentSorter.insertionSortStudent (byGrade = false)
-        // Logic: Sort by StudentId (ASC)
-        Student[] test3 = Arrays.copyOf(students, students.length);
-        StudentSorter.insertionSortStudent(test3, false);
-        System.out.println("\n--- Test 3: StudentSorter.insertionSortStudent (byGrade=false) ---");
-        printArray(test3);
+        Student newStudent = new Student(
+                21, 1021, "Yeni", "Ogrenci", "A", 85, "yeni@school.edu"
+        );
 
-        // Test 4: StudentSorter.binaryInsertionSortStudent (byGrade = true)
-        Student[] test4 = Arrays.copyOf(students, students.length);
-        StudentSorter.binaryInsertionSortStudent(test4, true);
-        System.out.println("\n--- Test 4: StudentSorter.binaryInsertionSortStudent (byGrade=true) ---");
-        printArray(test4);
+        Student[] extended = new Student[studentList.length + 1];
 
-        // Test 5: StudentSorter.binaryInsertionSortStudent (byGrade = false)
-        Student[] test5 = Arrays.copyOf(students, students.length);
-        StudentSorter.binaryInsertionSortStudent(test5, false);
-        System.out.println("\n--- Test 5: StudentSorter.binaryInsertionSortStudent (byGrade=false) ---");
-        printArray(test5);
+        for (int i = 0; i < studentList.length; i++) {
+            extended[i] = studentList[i];
+        }
 
-        // Test 6: studentInfo()
-        System.out.println("\n--- Test 6: studentInfo() Output ---");
-        System.out.println(s1.studentInfo());
+        System.out.println("\n===== AFTER ADDING NEW STUDENT (UNSORTED) =====");
+        extended[extended.length - 1] = newStudent;
+        StudentSorter.binaryInsertionSortStudent(studentList,true);
+        printAll(extended);
+
+        System.out.println("\n===== SORT BY GRADE (AFTER INSERTION) =====");
+        StudentSorter.binaryInsertionSortStudent(extended, true);
+        printAll(extended);
+
+
     }
 
-    private static void printArray(Student[] students) {
-        for (Student s : students) {
-            System.out.println(s);
+    private static void printAll(Student[] students) {
+        for (int i=0;i< students.length;i++){
+            System.out.println(students[i].studentInfo());
         }
+
+    }
+
+    private static Student[] createDummyStudents() {
+        return new Student[] {
+                new Student(1, 1001, "Ayse", "Yilmaz", "A", 85, "ayse.yilmaz@school.edu"),
+                new Student(2, 1002, "Mehmet", "Kaya", "A", 92, "mehmet.kaya@school.edu"),
+                new Student(3, 1003, "Elif", "Demir", "B", 78, "elif.demir@school.edu"),
+                new Student(4, 1004, "Can", "Sahin", "A", 85, "can.sahin@school.edu"),
+                new Student(5, 1005, "Zeynep", "Acar", "B", 90, "zeynep.acar@school.edu"),
+                new Student(6, 1006, "Mert", "Ozkan", "A", 73, "mert.ozkan@school.edu"),
+                new Student(7, 1007, "Derya", "Kilic", "B", 92, "derya.kilic@school.edu"),
+                new Student(8, 1008, "Kerem", "Aslan", "A", 88, "kerem.aslan@school.edu"),
+                new Student(9, 1009, "Ece", "Celik", "B", 85, "ece.celik@school.edu"),
+                new Student(10, 1010, "Bora", "Arslan", "A", 60, "bora.arslan@school.edu"),
+                new Student(11, 1011, "Sena", "Kurt", "B", 90, "sena.kurt@school.edu"),
+                new Student(12, 1012, "Emir", "Yildiz", "A", 78, "emir.yildiz@school.edu"),
+                new Student(13, 1013, "Naz", "Erdogan", "B", 95, "naz.erdogan@school.edu"),
+                new Student(14, 1014, "Baran", "Tas", "A", 88, "baran.tas@school.edu"),
+                new Student(15, 1015, "Irem", "Gunes", "B", 73, "irem.gunes@school.edu"),
+                new Student(16, 1016, "Ozan", "Polat", "A", 67, "ozan.polat@school.edu"),
+                new Student(17, 1017, "Selin", "Aksoy", "B", 85, "selin.aksoy@school.edu"),
+                new Student(18, 1018, "Hakan", "Karaca", "A", 92, "hakan.karaca@school.edu"),
+                new Student(19, 1019, "Nisa", "Yavuz", "B", 60, "nisa.yavuz@school.edu"),
+                new Student(20, 1020, "Eren", "Cetin", "A", 95, "eren.cetin@school.edu")
+        };
     }
 }
+
